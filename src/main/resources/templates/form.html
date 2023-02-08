@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="htttp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<div class="py-4 ml-5 mr-5">
+		<div class="card">
+  <div class="card-header" th:text="${titulo}"></div>
+  <div class="card-body">
+ 
+<form th:action="@{/form}" th:object="${sla}" method="post">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+    <input type="hidden"  th:field="*{id}" th:value="${sla.id}">
+      <label for="validationServer01">Work Order ID</label>
+      <input type="text" class="form-control is-valid" id="validationServer01" th:field="*{orderID}" th:value="${sla.orderID}" placeholder="Work Order ID" required>
+      <div class="valid-feedback">
+        validado!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">SVTTitle</label>
+      <input type="text" class="form-control is-valid" id="validationServer02" th:field="*{title}" th:value="${sla.title}" placeholder="title" value="Otto" required>
+      <div class="valid-feedback">
+        validado!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer03">MeasurementStatus</label>
+    
+        <input type="text" class="form-control is-valid" id="validationServerUsername" th:field="*{measurement}" th:value="${sla.measurement}" placeholder="measurement" aria-describedby="inputGroupPrepend3" required>
+        <div class="valid-feedback">
+        validado!
+     
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer03">ASGRP</label>
+      <input type="text" class="form-control is-valid" id="validationServer03" th:field="*{asgrp}" th:value="${sla.asgrp}" placeholder="asgrp" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer04">Categoría 1</label>
+      <input type="text" class="form-control is-valid" id="validationServer04" th:field="*{Categoria1}" th:value="${sla.Categoria1}" placeholder="Categoria 1" required>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer05">Categoría 2</label>
+      <input type="text" class="form-control is-valid" id="validationServer05" th:field="*{Categoria2}" th:value="${sla.Categoria2}"placeholder="Categoria 2" required>
+      <div class="invalid-feedback">
+        Please provide a valid zip.
+      </div>
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer03">Categoría 3</label>
+      <input type="text" class="form-control is-valid" id="validationServer03" th:field="*{Categoria3}" th:value="${sla.Categoria3}" placeholder="Categoria 3" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    </div>
+  
+    
+  <button class="btn btn-primary" type="submit">Guardar</button>
+</form>
+</div>
+</div>
+</div>
+
+<footer th:replace="layout/layout ::footer"></footer>
+</body>
+</html>

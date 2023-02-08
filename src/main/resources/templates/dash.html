@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html xmlns:th="htttp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="/">DASHBOARD</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      
+      <!-- sidebar-header  
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+    
+        <ul  >
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Gestion Nivel I </span>
+    
+            </a>
+            <div class="sidebar-submenu">
+              <ul th:each="menu: ${menu}">
+                 <li> <a  th:onclick="sla([[${menu.title}]])" th:text="${menu.title}"></a></li>        
+              </ul>
+            </div>
+          </li>
+            <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-chart-line"></i>
+              <span>Gestion Nivel II</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul th:each="menu2: ${menu2}">
+                 <li> <a  th:onclick="sla([[${menu2.title}]])" th:text="${menu2.title}"></a></li>        
+              </ul>
+            </div>
+          </li>
+          
+         
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-globe"></i>
+              <span>TOTAL</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                 <li>
+                  <a href="#" onclick="sla(18)" >Total Nivel 1</a>
+                </li>
+                <li>
+                  <a href="#"onclick="sla(19)">Total Nivel 2</a>
+                </li>
+               
+              </ul>
+            </div>
+          </li>
+         
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+     
+      <a href="/">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+     <div class="container" style="max-width: 1950px;padding-left:-1px">
+     
+    <div class="row">
+    <div class="col-sm-12" >
+    <span class="d-block p-2 bg-primary text-white" style="text-align: center;" id="titulo"></span>
+    </div>
+    </div>
+ 
+    <br>
+<div class="row">
+<div class="col-sm-3">
+<div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
+<div class="page_title_left">
+<h3 class="mb-0">GESTION SLA</h3>
+<p>Telefonica </p>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="monitor_list_widget">
+<div class="simgle_monitor_list">
+<div class="simgle_monitor_count d-flex align-items-center" style="position: relative;">
+<span>Total importados</span>
+<div id="monitor_1" style="min-height: 20px;"><div id="apexchartspfrwo7jh" class="apexcharts-canvas apexchartspfrwo7jh light" style="width: 35px; height: 20px;"><svg id="SvgjsSvg1424" width="35" height="20" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1426" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1425"><linearGradient id="SvgjsLinearGradient1428" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1429" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop1430" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop1431" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></linearGradient><clipPath id="gridRectMaskpfrwo7jh"><rect id="SvgjsRect1433" width="35" height="20" x="0" y="0" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath><clipPath id="gridRectMarkerMaskpfrwo7jh"><rect id="SvgjsRect1434" width="37" height="22" x="-1" y="-1" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath></defs><rect id="SvgjsRect1432" width="3.1111111111111116" height="20" x="0" y="0" rx="0" ry="0" fill="url(#SvgjsLinearGradient1428)" opacity="1" stroke-width="0" stroke-dasharray="3" class="apexcharts-xcrosshairs" y2="20" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG1447" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1448" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1451" class="apexcharts-grid"><line id="SvgjsLine1453" x1="0" y1="20" x2="35" y2="20" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1452" x1="0" y1="1" x2="0" y2="20" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1436" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG1437" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0"><path id="SvgjsPath1439" d="M 0.3888888888888886 20L 0.3888888888888886 15.2L 3.5 15.2L 3.5 20L 0.3888888888888886 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 0.3888888888888886 20L 0.3888888888888886 15.2L 3.5 15.2L 3.5 20L 0.3888888888888886 20" pathFrom="M 0.3888888888888886 20L 0.3888888888888886 20L 3.5 20L 3.5 20L 0.3888888888888886 20" cy="15.2" cx="3.5" j="0" val="24" barHeight="4.8" barWidth="3.1111111111111116"></path><path id="SvgjsPath1440" d="M 4.833333333333332 20L 4.833333333333332 7.6L 7.944444444444444 7.6L 7.944444444444444 20L 4.833333333333332 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 4.833333333333332 20L 4.833333333333332 7.6L 7.944444444444444 7.6L 7.944444444444444 20L 4.833333333333332 20" pathFrom="M 4.833333333333332 20L 4.833333333333332 20L 7.944444444444444 20L 7.944444444444444 20L 4.833333333333332 20" cy="7.6" cx="7.944444444444444" j="1" val="62" barHeight="12.4" barWidth="3.1111111111111116"></path><path id="SvgjsPath1441" d="M 9.277777777777779 20L 9.277777777777779 11.6L 12.38888888888889 11.6L 12.38888888888889 20L 9.277777777777779 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 9.277777777777779 20L 9.277777777777779 11.6L 12.38888888888889 11.6L 12.38888888888889 20L 9.277777777777779 20" pathFrom="M 9.277777777777779 20L 9.277777777777779 20L 12.38888888888889 20L 12.38888888888889 20L 9.277777777777779 20" cy="11.6" cx="12.38888888888889" j="2" val="42" barHeight="8.4" barWidth="3.1111111111111116"></path><path id="SvgjsPath1442" d="M 13.722222222222221 20L 13.722222222222221 3.1999999999999993L 16.833333333333332 3.1999999999999993L 16.833333333333332 20L 13.722222222222221 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 13.722222222222221 20L 13.722222222222221 3.1999999999999993L 16.833333333333332 3.1999999999999993L 16.833333333333332 20L 13.722222222222221 20" pathFrom="M 13.722222222222221 20L 13.722222222222221 20L 16.833333333333332 20L 16.833333333333332 20L 13.722222222222221 20" cy="3.1999999999999993" cx="16.833333333333332" j="3" val="84" barHeight="16.8" barWidth="3.1111111111111116"></path><path id="SvgjsPath1443" d="M 18.166666666666664 20L 18.166666666666664 7.4L 21.277777777777775 7.4L 21.277777777777775 20L 18.166666666666664 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 18.166666666666664 20L 18.166666666666664 7.4L 21.277777777777775 7.4L 21.277777777777775 20L 18.166666666666664 20" pathFrom="M 18.166666666666664 20L 18.166666666666664 20L 21.277777777777775 20L 21.277777777777775 20L 18.166666666666664 20" cy="7.4" cx="21.277777777777775" j="4" val="63" barHeight="12.6" barWidth="3.1111111111111116"></path><path id="SvgjsPath1444" d="M 22.611111111111107 20L 22.611111111111107 15L 25.722222222222218 15L 25.722222222222218 20L 22.611111111111107 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 22.611111111111107 20L 22.611111111111107 15L 25.722222222222218 15L 25.722222222222218 20L 22.611111111111107 20" pathFrom="M 22.611111111111107 20L 22.611111111111107 20L 25.722222222222218 20L 25.722222222222218 20L 22.611111111111107 20" cy="15" cx="25.722222222222218" j="5" val="25" barHeight="5" barWidth="3.1111111111111116"></path><path id="SvgjsPath1445" d="M 27.055555555555554 20L 27.055555555555554 7L 30.166666666666664 7L 30.166666666666664 20L 27.055555555555554 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 27.055555555555554 20L 27.055555555555554 7L 30.166666666666664 7L 30.166666666666664 20L 27.055555555555554 20" pathFrom="M 27.055555555555554 20L 27.055555555555554 20L 30.166666666666664 20L 30.166666666666664 20L 27.055555555555554 20" cy="7" cx="30.166666666666664" j="6" val="65" barHeight="13" barWidth="3.1111111111111116"></path><path id="SvgjsPath1446" d="M 31.5 20L 31.5 10L 34.611111111111114 10L 34.611111111111114 20L 31.5 20" fill="rgba(97,189,161,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskpfrwo7jh)" pathTo="M 31.5 20L 31.5 10L 34.611111111111114 10L 34.611111111111114 20L 31.5 20" pathFrom="M 31.5 20L 31.5 20L 34.611111111111114 20L 34.611111111111114 20L 31.5 20" cy="10" cx="34.611111111111114" j="7" val="50" barHeight="10" barWidth="3.1111111111111116"></path><g id="SvgjsG1438" class="apexcharts-datalabels"></g></g></g><line id="SvgjsLine1454" x1="0" y1="0" x2="35" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1455" x1="0" y1="0" x2="35" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1456" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1457" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1458" class="apexcharts-point-annotations"></g></g><g id="SvgjsG1449" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)"><g id="SvgjsG1450" class="apexcharts-yaxis-texts-g"></g></g></svg><div class="apexcharts-legend"></div><div class="apexcharts-tooltip light"><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(97, 189, 161);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div></div></div>
+<div class="resize-triggers"><div class="expand-trigger"><div style="width: 116px; height: 22px;"></div></div><div class="contract-trigger"></div></div></div>
+<h4 class="counter" th:text="${lT}"></h4>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="simgle_monitor_list">
+<div class="simgle_monitor_count d-flex align-items-center" style="position: relative;">
+<span>Tickets Gestion</span>
+<div id="monitor_2" style="min-height: 20px;"><div id="apexchartsn1s9ch6v" class="apexcharts-canvas apexchartsn1s9ch6v light" style="width: 35px; height: 20px;"><svg id="SvgjsSvg1461" width="35" height="20" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1463" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1462"><linearGradient id="SvgjsLinearGradient1465" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1466" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop1467" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop1468" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></linearGradient><clipPath id="gridRectMaskn1s9ch6v"><rect id="SvgjsRect1470" width="35" height="20" x="0" y="0" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath><clipPath id="gridRectMarkerMaskn1s9ch6v"><rect id="SvgjsRect1471" width="37" height="22" x="-1" y="-1" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath></defs><rect id="SvgjsRect1469" width="3.1111111111111116" height="20" x="0" y="0" rx="0" ry="0" fill="url(#SvgjsLinearGradient1465)" opacity="1" stroke-width="0" stroke-dasharray="3" class="apexcharts-xcrosshairs" y2="20" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG1484" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1485" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1488" class="apexcharts-grid"><line id="SvgjsLine1490" x1="0" y1="20" x2="35" y2="20" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1489" x1="0" y1="1" x2="0" y2="20" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1473" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG1474" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0"><path id="SvgjsPath1476" d="M 0.3888888888888886 20L 0.3888888888888886 15.2L 3.5 15.2L 3.5 20L 0.3888888888888886 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 0.3888888888888886 20L 0.3888888888888886 15.2L 3.5 15.2L 3.5 20L 0.3888888888888886 20" pathFrom="M 0.3888888888888886 20L 0.3888888888888886 20L 3.5 20L 3.5 20L 0.3888888888888886 20" cy="15.2" cx="3.5" j="0" val="24" barHeight="4.8" barWidth="3.1111111111111116"></path><path id="SvgjsPath1477" d="M 4.833333333333332 20L 4.833333333333332 7.6L 7.944444444444444 7.6L 7.944444444444444 20L 4.833333333333332 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 4.833333333333332 20L 4.833333333333332 7.6L 7.944444444444444 7.6L 7.944444444444444 20L 4.833333333333332 20" pathFrom="M 4.833333333333332 20L 4.833333333333332 20L 7.944444444444444 20L 7.944444444444444 20L 4.833333333333332 20" cy="7.6" cx="7.944444444444444" j="1" val="62" barHeight="12.4" barWidth="3.1111111111111116"></path><path id="SvgjsPath1478" d="M 9.277777777777779 20L 9.277777777777779 11.6L 12.38888888888889 11.6L 12.38888888888889 20L 9.277777777777779 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 9.277777777777779 20L 9.277777777777779 11.6L 12.38888888888889 11.6L 12.38888888888889 20L 9.277777777777779 20" pathFrom="M 9.277777777777779 20L 9.277777777777779 20L 12.38888888888889 20L 12.38888888888889 20L 9.277777777777779 20" cy="11.6" cx="12.38888888888889" j="2" val="42" barHeight="8.4" barWidth="3.1111111111111116"></path><path id="SvgjsPath1479" d="M 13.722222222222221 20L 13.722222222222221 3.1999999999999993L 16.833333333333332 3.1999999999999993L 16.833333333333332 20L 13.722222222222221 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 13.722222222222221 20L 13.722222222222221 3.1999999999999993L 16.833333333333332 3.1999999999999993L 16.833333333333332 20L 13.722222222222221 20" pathFrom="M 13.722222222222221 20L 13.722222222222221 20L 16.833333333333332 20L 16.833333333333332 20L 13.722222222222221 20" cy="3.1999999999999993" cx="16.833333333333332" j="3" val="84" barHeight="16.8" barWidth="3.1111111111111116"></path><path id="SvgjsPath1480" d="M 18.166666666666664 20L 18.166666666666664 7.4L 21.277777777777775 7.4L 21.277777777777775 20L 18.166666666666664 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 18.166666666666664 20L 18.166666666666664 7.4L 21.277777777777775 7.4L 21.277777777777775 20L 18.166666666666664 20" pathFrom="M 18.166666666666664 20L 18.166666666666664 20L 21.277777777777775 20L 21.277777777777775 20L 18.166666666666664 20" cy="7.4" cx="21.277777777777775" j="4" val="63" barHeight="12.6" barWidth="3.1111111111111116"></path><path id="SvgjsPath1481" d="M 22.611111111111107 20L 22.611111111111107 15L 25.722222222222218 15L 25.722222222222218 20L 22.611111111111107 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 22.611111111111107 20L 22.611111111111107 15L 25.722222222222218 15L 25.722222222222218 20L 22.611111111111107 20" pathFrom="M 22.611111111111107 20L 22.611111111111107 20L 25.722222222222218 20L 25.722222222222218 20L 22.611111111111107 20" cy="15" cx="25.722222222222218" j="5" val="25" barHeight="5" barWidth="3.1111111111111116"></path><path id="SvgjsPath1482" d="M 27.055555555555554 20L 27.055555555555554 7L 30.166666666666664 7L 30.166666666666664 20L 27.055555555555554 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 27.055555555555554 20L 27.055555555555554 7L 30.166666666666664 7L 30.166666666666664 20L 27.055555555555554 20" pathFrom="M 27.055555555555554 20L 27.055555555555554 20L 30.166666666666664 20L 30.166666666666664 20L 27.055555555555554 20" cy="7" cx="30.166666666666664" j="6" val="65" barHeight="13" barWidth="3.1111111111111116"></path><path id="SvgjsPath1483" d="M 31.5 20L 31.5 10L 34.611111111111114 10L 34.611111111111114 20L 31.5 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 31.5 20L 31.5 10L 34.611111111111114 10L 34.611111111111114 20L 31.5 20" pathFrom="M 31.5 20L 31.5 20L 34.611111111111114 20L 34.611111111111114 20L 31.5 20" cy="10" cx="34.611111111111114" j="7" val="50" barHeight="10" barWidth="3.1111111111111116"></path><g id="SvgjsG1475" class="apexcharts-datalabels"></g></g></g><line id="SvgjsLine1491" x1="0" y1="0" x2="35" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1492" x1="0" y1="0" x2="35" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1493" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1494" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1495" class="apexcharts-point-annotations"></g></g><g id="SvgjsG1486" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)"><g id="SvgjsG1487" class="apexcharts-yaxis-texts-g"></g></g></svg><div class="apexcharts-legend"></div><div class="apexcharts-tooltip light"><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(44, 131, 182);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div></div></div>
+<div class="resize-triggers"><div class="expand-trigger"><div style="width: 116px; height: 22px;"></div></div><div class="contract-trigger"></div></div></div>
+<h4 class="counter" th:text="${totalT}"></h4>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="simgle_monitor_list">
+<div class="simgle_monitor_count d-flex align-items-center" style="position: relative;">
+<span>Cantidad Medido</span>
+<div id="m" style="min-height: 20px;"><div id="apexchartsn1s9ch6v" class="apexcharts-canvas apexchartsn1s9ch6v light" style="width: 35px; height: 20px;"><svg id="SvgjsSvg1461" width="35" height="20" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1463" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1462"><linearGradient id="SvgjsLinearGradient1465" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1466" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop1467" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop1468" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></linearGradient><clipPath id="gridRectMaskn1s9ch6v"><rect id="SvgjsRect1470" width="35" height="20" x="0" y="0" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath><clipPath id="gridRectMarkerMaskn1s9ch6v"><rect id="SvgjsRect1471" width="37" height="22" x="-1" y="-1" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath></defs><rect id="SvgjsRect1469" width="3.1111111111111116" height="20" x="0" y="0" rx="0" ry="0" fill="url(#SvgjsLinearGradient1465)" opacity="1" stroke-width="0" stroke-dasharray="3" class="apexcharts-xcrosshairs" y2="20" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG1484" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1485" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1488" class="apexcharts-grid"><line id="SvgjsLine1490" x1="0" y1="20" x2="35" y2="20" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1489" x1="0" y1="1" x2="0" y2="20" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1473" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG1474" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0"><path id="SvgjsPath1476" d="M 0.3888888888888886 20L 0.3888888888888886 15.2L 3.5 15.2L 3.5 20L 0.3888888888888886 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 0.3888888888888886 20L 0.3888888888888886 15.2L 3.5 15.2L 3.5 20L 0.3888888888888886 20" pathFrom="M 0.3888888888888886 20L 0.3888888888888886 20L 3.5 20L 3.5 20L 0.3888888888888886 20" cy="15.2" cx="3.5" j="0" val="24" barHeight="4.8" barWidth="3.1111111111111116"></path><path id="SvgjsPath1477" d="M 4.833333333333332 20L 4.833333333333332 7.6L 7.944444444444444 7.6L 7.944444444444444 20L 4.833333333333332 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 4.833333333333332 20L 4.833333333333332 7.6L 7.944444444444444 7.6L 7.944444444444444 20L 4.833333333333332 20" pathFrom="M 4.833333333333332 20L 4.833333333333332 20L 7.944444444444444 20L 7.944444444444444 20L 4.833333333333332 20" cy="7.6" cx="7.944444444444444" j="1" val="62" barHeight="12.4" barWidth="3.1111111111111116"></path><path id="SvgjsPath1478" d="M 9.277777777777779 20L 9.277777777777779 11.6L 12.38888888888889 11.6L 12.38888888888889 20L 9.277777777777779 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 9.277777777777779 20L 9.277777777777779 11.6L 12.38888888888889 11.6L 12.38888888888889 20L 9.277777777777779 20" pathFrom="M 9.277777777777779 20L 9.277777777777779 20L 12.38888888888889 20L 12.38888888888889 20L 9.277777777777779 20" cy="11.6" cx="12.38888888888889" j="2" val="42" barHeight="8.4" barWidth="3.1111111111111116"></path><path id="SvgjsPath1479" d="M 13.722222222222221 20L 13.722222222222221 3.1999999999999993L 16.833333333333332 3.1999999999999993L 16.833333333333332 20L 13.722222222222221 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 13.722222222222221 20L 13.722222222222221 3.1999999999999993L 16.833333333333332 3.1999999999999993L 16.833333333333332 20L 13.722222222222221 20" pathFrom="M 13.722222222222221 20L 13.722222222222221 20L 16.833333333333332 20L 16.833333333333332 20L 13.722222222222221 20" cy="3.1999999999999993" cx="16.833333333333332" j="3" val="84" barHeight="16.8" barWidth="3.1111111111111116"></path><path id="SvgjsPath1480" d="M 18.166666666666664 20L 18.166666666666664 7.4L 21.277777777777775 7.4L 21.277777777777775 20L 18.166666666666664 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 18.166666666666664 20L 18.166666666666664 7.4L 21.277777777777775 7.4L 21.277777777777775 20L 18.166666666666664 20" pathFrom="M 18.166666666666664 20L 18.166666666666664 20L 21.277777777777775 20L 21.277777777777775 20L 18.166666666666664 20" cy="7.4" cx="21.277777777777775" j="4" val="63" barHeight="12.6" barWidth="3.1111111111111116"></path><path id="SvgjsPath1481" d="M 22.611111111111107 20L 22.611111111111107 15L 25.722222222222218 15L 25.722222222222218 20L 22.611111111111107 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 22.611111111111107 20L 22.611111111111107 15L 25.722222222222218 15L 25.722222222222218 20L 22.611111111111107 20" pathFrom="M 22.611111111111107 20L 22.611111111111107 20L 25.722222222222218 20L 25.722222222222218 20L 22.611111111111107 20" cy="15" cx="25.722222222222218" j="5" val="25" barHeight="5" barWidth="3.1111111111111116"></path><path id="SvgjsPath1482" d="M 27.055555555555554 20L 27.055555555555554 7L 30.166666666666664 7L 30.166666666666664 20L 27.055555555555554 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 27.055555555555554 20L 27.055555555555554 7L 30.166666666666664 7L 30.166666666666664 20L 27.055555555555554 20" pathFrom="M 27.055555555555554 20L 27.055555555555554 20L 30.166666666666664 20L 30.166666666666664 20L 27.055555555555554 20" cy="7" cx="30.166666666666664" j="6" val="65" barHeight="13" barWidth="3.1111111111111116"></path><path id="SvgjsPath1483" d="M 31.5 20L 31.5 10L 34.611111111111114 10L 34.611111111111114 20L 31.5 20" fill="rgba(44,131,182,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskn1s9ch6v)" pathTo="M 31.5 20L 31.5 10L 34.611111111111114 10L 34.611111111111114 20L 31.5 20" pathFrom="M 31.5 20L 31.5 20L 34.611111111111114 20L 34.611111111111114 20L 31.5 20" cy="10" cx="34.611111111111114" j="7" val="50" barHeight="10" barWidth="3.1111111111111116"></path><g id="SvgjsG1475" class="apexcharts-datalabels"></g></g></g><line id="SvgjsLine1491" x1="0" y1="0" x2="35" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1492" x1="0" y1="0" x2="35" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1493" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1494" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1495" class="apexcharts-point-annotations"></g></g><g id="SvgjsG1486" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)"><g id="SvgjsG1487" class="apexcharts-yaxis-texts-g"></g></g></svg><div class="apexcharts-legend"></div><div class="apexcharts-tooltip light"><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(44, 131, 182);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div></div></div>
+<div class="resize-triggers"><div class="expand-trigger"><div style="width: 116px; height: 22px;"></div></div><div class="contract-trigger"></div></div></div>
+<div id="nam" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+</div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+  <div class="card card border-success shadow h-95 py-2">
+ <div class="card-body">
+ <div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-xxs font-weight-bold text-success text-uppercase mb-1"th:text="Cumplidos">
+</div>
+<div id="cumplidos" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+<form name="f3" id="f3" >
+       <input type="hidden" name="c" id="c">
+ 	
+     &nbsp;&nbsp;
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form>
+</div>
+<div class="col-auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="green" class="bi bi-check-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+  </div>
+    
+
+
+
+<div class="col-sm-4">
+   <div class="card card border-danger shadow h-95 py-2">
+ <div class="card-body">
+ <div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-xxs font-weight-bold text-danger text-uppercase mb-1"th:text="Incumplidos">
+</div>
+<div id="pendiente" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+
+
+<form name="f1" id="f1" >
+       <input type="hidden" name="p" id="p">
+ 	
+ 
+ &nbsp;&nbsp;
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form> 
+<div id="prueba" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+</div>
+<div class="col-auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="red" class="bi bi-exclamation-triangle " viewBox="0 0 16 16">
+  <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+  <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+  </div>
+     <div class="col-sm-4">
+ <div class="card card border-warning shadow h-95 py-2">
+ <div class="card-body">
+ <div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-xxs font-weight-bold text-warning text-uppercase mb-1"th:text="Pendientes">
+</div>
+<div id="Pending" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+<form name="f7" id="f7" >
+       <input type="hidden" name="e" id="e">
+ 	<input type="hidden" name="e1" id="e1" th:value="Pending">
+ 
+ &nbsp;&nbsp;
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form>
+</div>
+<div class="col-auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+  <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+  <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+  </div>
+  
+  <br>
+   <div class="row">
+     <div class="col-sm-3" >
+
+ <div class="card card border-info shadow h-95 py-2">
+ <div class="card-body" >
+ <div class="row no-gutters align-items-center">
+<div class="col mr-2" >
+<div class="text-xxs font-weight-bold text-info text-uppercase mb-1">
+<span>Cambio estado</span>
+</div>
+<div id="cancelado" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+<form name="f2" id="f2" >
+       <input type="hidden" name="a" id="a">
+ 
+ 
+ &nbsp;&nbsp;
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form>
+</div>
+
+<div class="col-auto">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="col-sm-3"  >
+ <div class="card card border-info shadow h-95 py-2">
+ <div class="card-body">
+ <div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-xxs font-weight-bold text-info text-uppercase mb-1">
+<span>Por Incumplir</span>
+</div>
+<div id="Warning" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+<form name="f6" id="f6" >
+       <input type="hidden" name="w" id="w">
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form>
+</div>
+<div class="col-auto">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+      
+<div class="col-sm-3" >
+ <div class="card card border-dark shadow h-95 py-2">
+ <div class="card-body">
+ <div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-xxs font-weight-bold text-dark text-uppercase mb-1">
+<span>Incum s/e</span>
+</div>
+<div id="Missed_Goal" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+<form name="f5" id="f5" >
+       <input type="hidden" name="m" id="m">
+ 
+ 
+ &nbsp;&nbsp;
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3" >
+  <div class="card card border-success shadow h-95 py-2">
+ <div class="card-body">
+ <div class="row no-gutters align-items-center">
+<div class="col mr-1">
+<div class="text-xxs font-weight-bold text-success text-uppercase mb-1">
+<span>inactivos</span>
+</div>
+<div id="Attached" class="h5 mb-0 font-weight-bold text-gray-400" ></div>
+<form name="f4" id="f4" >
+       <input type="hidden" name="at" id="at">
+ 	
+     &nbsp;&nbsp;
+  <button type="submit" class="btn" >
+   ver<i class="fas fa-search"></i>
+  </button>
+  </form>
+</div>
+</div>
+</div>
+</div>
+  </div>
+   
+  <div class="row">
+  <div class="col" >
+   <div class="card bg-light" style="width: 420px;height:450px">
+  <div class="card-header">Porcentaje de Cumplimiento</div>
+  <div class="card-body">
+    <div id="myPlot2" style="width:380px ;height:350px"></div>
+  </div>
+</div>
+  </div>
+  <div class="col">
+    <div class="card bg-light " style="width: 400px;height:450px">
+  <div class="card-header">Total</div>
+  <div class="card-body">
+  <div id="myPlot3" style="width:370px ;height:350px"></div>
+  </div>
+</div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col" >
+   <div class="card bg-light" style="width: 420px;height:450px">
+  <div class="card-header">Medidor</div>
+  <div class="card-body">
+   <div id="myPlot" style="width:200px ;height:350px"></div>
+  </div>
+</div>
+  </div>
+  <div class="col">
+    <div class="card bg-light " style="width: 400px;height:450px">
+  <div class="card-header">Cumplido/Icumplidos</div>
+  <div class="card-body">
+<div id="myPlot4" style="width:380px ;height:350px"></div>
+  </div>
+</div>
+  </div>
+  </div>
+
+    </div>
+  </div>
+ 
+    
+       </div>
+      <footer class="text-center">
+        <div class="mb-2">
+          <small>
+            © 2023 made with </i> by - <a target="_blank" rel="noopener noreferrer" href="https://azouaoui.netlify.com">
+              LEO
+            </a>
+          </small>
+        </div>
+        <div>
+          <a href="https://github.com/azouaoui-med" target="_blank">
+            <img alt="GitHub followers" src="https://img.shields.io/github/followers/azouaoui-med?label=github&style=social" />
+          </a>
+          <a href="https://twitter.com/azouaoui_med" target="_blank">
+            <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/azouaoui_med?label=twitter&style=social" />
+          </a>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <!-- page-content" -->
+</div>
+
+  
+<script type="text/javascript" th:inline="javascript">
+
+
+jQuery(function ($) {
+
+    $(".sidebar-dropdown > a").click(function() {
+  $(".sidebar-submenu").slideUp(200);
+  if (
+    $(this)
+      .parent()
+      .hasClass("active")
+  ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(200);
+    $(this)
+      .parent()
+      .addClass("active");
+  }
+});
+
+$("#close-sidebar").click(function() {
+  $(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function() {
+  $(".page-wrapper").addClass("toggled");
+});
+
+
+   
+   
+});
+var a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,a9=0,a10=0,a11=0,a12=0,a13=0,opcion=0;
+var tit;
+var tit=0;
+
+sla(0)
+function prueba(id){
+	
+	 location.href = "/ver/"+id;
+}
+function sla(a){
+	
+	a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,pr=0,opcion=0;
+	var l1=0,l2=0,l3=0,l4=0,l5=0,l6=0,l7=0,l8=0;
+	if(a==0){
+		
+		
+		/*[# th:each="inicio: ${inicio}"]*/
+	tit="ESTADISTICA DE TICKETS TOTAL";
+	 if("[(${inicio.title})]"=="Gestion Reclamos Revision Nuevo Ambiente") {
+   		 pr++;
+  
+} if("[(${inicio.title})]"=="Gestion Reclamos Revision Nuevo") {
+   		l1++;
+  
+}	 if("[(${inicio.title})]"=="Gestion Reclamos Solucion Tipo I") {
+   		 l2++;
+  
+}		
+		  if("[(${inicio.measurement})]"=="Met") {
+		   		 a1++;
+		  
+		}	
+		     if("[(${inicio.measurement})]"=="Missed") {
+		   	 a2++;	    	  
+		}
+		     if("[(${inicio.measurement})]"=="Detached") {
+		   	  a3++;	    	  
+		}   if("[(${inicio.measurement})]"=="Pending") {
+		   	  a4++;	    	  
+		}if("[(${inicio.measurement})]"=="Warning") {
+		   	  a5++;	    	  
+		}if("[(${inicio.measurement})]"=="Missed Goal") {
+		   	  a6++;	    	  
+		}if("[(${inicio.measurement})]"=="Attached") {
+		   	  a7++;	    	  
+		}
+		
+		/*[/]*/
+		if(pr==0){$('.list').each(function(){
+			$(this).remove()
+		});}
+		if(l1==0){$('.list2').each(function(){
+			$(this).remove()
+		});}
+	}	
+if(a=="Gestion Reclamos Informe Primera Visita"){
+	
+	
+	/*[# th:each="sla: ${sla}"]*/
+tit="[(${sla.title})]";
+	  if("[(${sla.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}   if("[(${sla.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+	
+
+	/*[/]*/
+}else if(a=="Gestion Reclamos Coordina Visita"){
+	
+	/*[# th:each="sla2: ${sla2}"]*/
+	tit="[(${sla2.title})]";
+	  if("[(${sla2.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla2.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla2.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla2.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla2.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla2.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla2.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos GCC_PYME"){
+	
+	/*[# th:each="sla3: ${sla3}"]*/
+tit="[(${sla3.title})]";
+	  if("[(${sla3.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla3.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla3.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla3.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla3.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla3.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla3.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Coordina Cierre"){
+
+	/*[# th:each="sla4: ${sla4}"]*/
+	tit="[(${sla4.title})]";
+	  if("[(${sla4.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla4.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla4.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla4.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla4.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla4.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla4.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Revision Informe"){
+	
+	/*[# th:each="sla5: ${sla5}"]*/
+	tit="[(${sla5.title})]";
+	  if("[(${sla5.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla5.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla5.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla5.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla5.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla5.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla5.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos ROAMING"){
+
+	/*[# th:each="sla6: ${sla6}"]*/
+tit="[(${sla6.title})]";
+	  if("[(${sla6.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla6.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla6.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla6.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla6.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla6.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla6.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos INDIVIDUAL"){
+
+	/*[# th:each="sla7: ${sla7}"]*/
+tit="[(${sla7.title})]";
+	  if("[(${sla7.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla7.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla7.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla7.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla7.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla7.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla7.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}
+else if(a=="Gestion Reclamos N1"){
+
+	/*[# th:each="sla8: ${sla8}"]*/
+tit="[(${sla8.title})]";
+	  if("[(${sla8.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla8.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla8.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla8.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla8.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla8.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla8.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}
+else if(a=="Gestion Reclamos Revision Nuevo Ambiente"){
+var let=0;
+	/*[# th:each="sla9: ${sla9}"]*/
+
+tit="[(${sla9.title})]";
+
+	  if("[(${sla9.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla9.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla9.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla9.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla9.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla9.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla9.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	alert(let);
+}
+
+else if(a=="Gestion Reclamos Revision Nuevo"){
+
+	/*[# th:each="sla11: ${sla11}"]*/
+tit="[(${sla11.title})]";
+	  if("[(${sla11.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla11.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla11.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla11.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla11.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla11.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla11.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Solucion Tipo I"){
+
+	/*[# th:each="sla12: ${sla12}"]*/
+tit="[(${sla12.title})]";
+	
+	  if("[(${sla12.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla12.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla12.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla12.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla12.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla12.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla12.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Solucion Tipo II"){
+
+	/*[# th:each="sla13: ${sla13}"]*/
+tit="[(${sla13.title})]";
+	  if("[(${sla13.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla13.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla13.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla13.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla13.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla13.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla13.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Solucion Tipo III"){
+
+	/*[# th:each="sla14: ${sla14}"]*/
+tit="[(${sla14.title})]";
+	  if("[(${sla14.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla14.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla14.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla14.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla14.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla14.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla14.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Solucion Tipo VI"){
+
+	/*[# th:each="sla15: ${sla15}"]*/
+tit="[(${sla15.title})]";
+	  if("[(${sla15.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla15.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla15.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla15.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla15.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla15.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla15.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos VIP"){
+
+	/*[# th:each="sla16: ${sla16}"]*/
+tit="[(${sla16.title})]";
+	  if("[(${sla16.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla16.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla16.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla16.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla16.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla16.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla16.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a=="Gestion Reclamos Solucion Tipo V"){
+
+	/*[# th:each="sla17: ${sla17}"]*/
+tit="[(${sla17.title})]";
+	  if("[(${sla17.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla17.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla17.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla17.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla17.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla17.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla17.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}else if(a==18){
+
+	/*[# th:each="sla18: ${sla18}"]*/
+tit="Total Nivel I";
+	  if("[(${sla18.measurement})]"=="Met") {
+	   		 a1++;
+	  	}	
+	     if("[(${sla18.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla18.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla18.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla18.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla18.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla18.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}if("[(${sla18.title})]"=="Gestion Reclamos Solucion Tipo I" ) {
+	   	  a8++;	    	  
+	}
+	if("[(${sla18.title})]"=="Gestion Reclamos Solucion Tipo II" ) {
+		
+	   	  a9++;	    	  
+	}
+	if("[(${sla18.title})]"=="Gestion Reclamos Solucion Tipo III" ) {
+		
+	   	  a10++;	    	  
+	}
+	if("[(${sla18.title})]"=="Gestion Reclamos Solucion Tipo V" ) {
+		
+	   	  a11++;	    	  
+	}if("[(${sla18.title})]"=="Gestion Reclamos Solucion Tipo VI" ) {
+		
+	   	  a12++;	    	  
+	}if("[(${sla18.title})]"=="Gestion Reclamos VIP" ) {
+		
+	   	  a13++;	    	  
+	}
+
+
+
+
+	/*[/]*/
+
+	var zArray = ["Gestion Reclamos Solucion Tipo I","Gestion Reclamos Solucion Tipo II",
+		"Gestion Reclamos Solucion Tipo III","Gestion Reclamos Solucion Tipo V","Gestion Reclamos Solucion Tipo VI",
+		"Gestion Reclamos Solucion Tipo VIP"];  
+	var sArray=[a8,a9,a10,a11,a12,a13];
+}else if(a==19){
+
+	/*[# th:each="sla19: ${sla19}"]*/
+tit="Total Nivel II";
+	  if("[(${sla19.measurement})]"=="Met") {
+	   		 a1++;
+	  
+	}	
+	     if("[(${sla19.measurement})]"=="Missed") {
+	   	 a2++;	    	  
+	}
+	     if("[(${sla19.measurement})]"=="Detached") {
+	   	  a3++;	    	  
+	}if("[(${sla19.measurement})]"=="Pending") {
+	   	  a4++;	    	  
+	}if("[(${sla19.measurement})]"=="Warning") {
+	   	  a5++;	    	  
+	}if("[(${sla19.measurement})]"=="Missed Goal") {
+	   	  a6++;	    	  
+	}if("[(${sla19.measurement})]"=="Attached") {
+	   	  a7++;	    	  
+	}
+
+	/*[/]*/
+	     
+}
+//document.getElementById('box').innerHTML=tit;
+document.f1.p.value = tit;
+document.f2.a.value = tit;
+document.f3.c.value = tit;
+document.f4.at.value = tit;
+document.f5.m.value = tit;
+document.f6.w.value = tit;
+document.f7.e.value = tit;
+
+var todo=a1+a2+a4+a6;
+var xArray = ["Cumplidos","Incumplidos","Pendiente"];
+
+var yArray = [a1,a2+a6,a4];
+var col= ['green', 'red', 'orange'];
+document.getElementById('titulo').innerHTML=tit;
+document.getElementById('pendiente').innerHTML=a2;
+document.getElementById('cancelado').innerHTML=a3;
+document.getElementById('cumplidos').innerHTML=a1;
+document.getElementById('Pending').innerHTML=a4;
+document.getElementById('Warning').innerHTML=a5;
+document.getElementById('Missed_Goal').innerHTML=a6;
+document.getElementById('Attached').innerHTML=a7;
+document.getElementById('nam').innerHTML=todo;
+
+var data = [
+	  {
+	    type: "indicator",
+	    value: a1,
+	    delta: { reference: a1+a2+a6 },
+	    gauge: { axis: { visible: false, range: [0,a1+a2+a6+a4] } },
+	    domain: { row: 0, column: 0 }
+	  },
+	 
+	  {
+	    type: "indicator",
+	    mode: "number+delta",
+	    value: a1,
+	    domain: { row: 0, column: 1 }
+	  },
+	  { type: "indicator",title: { text: "Pendientes" }, mode: "delta", value: a1+a2+a6+a4, domain: { row: 1, column: 1 } }
+	];
+
+	var layout2 = {
+			title:tit,
+	  width: 380,
+	  height: 380,
+	  margin: { t: 105, b: 105, l: 15, r: 15 },
+	  grid: { rows: 2, columns: 2, pattern: "independent" },
+	  template: {
+	    data: {
+	      indicator: [
+	        {
+	          title: { text: "Cumplidos" },
+	          mode: "number+delta+gauge",
+	          delta: { reference: a1+a2+a6 }
+	        }
+	        
+	      ],
+	
+	    }
+	  }
+	};
+
+var data3 = [{
+  x:yArray,
+  y:xArray,
+  type:"bar",
+  text: yArray.map(String),
+  textposition: 'auto',
+  
+  orientation:"h",
+ marker: {color:col}
+}];
+var data2 = [{
+labels:xArray, values:yArray,   domain: {column: 0},
+marker: {
+	colors: ['#28a745','#dc3545','orange']},
+hoverinfo: 'label+percent+name',
+hole: .4,
+type: 'pie',
+	color_discrete_map:{'Cumplidos':'lightcyan',
+        'Fri':'cyan',
+        'Sat':'royalblue',
+        'Sun':'darkblue'}
+
+}];
+var data4 = [{
+	labels:xArray, values:[a1+a4,a2+a6],   domain: {column: 0},
+	marker: {
+		colors: ['#28a745','#dc3545']},
+	hoverinfo: 'label+percent+name',
+	hole: .4,
+	type: 'pie',
+		color_discrete_map:{'Cumplidos':'lightcyan',
+	        'Fri':'cyan',
+	        'Sat':'royalblue',
+	       }
+
+	}];
+var layout = {
+		 title:tit,
+	 yaxis: { title: "Numero de tickets"},  
+
+};
+var layout3 = {
+		 title:tit,
+	 xaxis: { title: "Numero de tickets"},  
+
+};
+
+trace1 = {
+		  type: 'scatter',
+		  x: [1, 2, 3],
+		  y: [a4,a2+a6,a1],
+		  mode: 'lines',
+		  name: 'Red',
+		  line: {
+		    color: 'rgb(219, 64, 82)',
+		    width: 3
+		  }
+		};
+
+
+		var layout5 = {
+				 title:tit,
+		  width: 350,
+		  height: 380
+		};
+
+		var data5 = [trace1];
+
+
+Plotly.newPlot("myPlot2", data2, layout);
+Plotly.newPlot("myPlot", data, layout2);
+Plotly.newPlot("myPlot3", data3, layout3);
+Plotly.newPlot("myPlot4", data4, layout);
+
+}
+
+
+
+</script>
+
+<footer th:replace="layout/layout ::footer"></footer>
+</body>
+</html>
+

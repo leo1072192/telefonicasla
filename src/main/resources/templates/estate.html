@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns:th="htttp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<link href="css/dash.css" rel="stylesheet" type="text/css">
+
+<header th:replace="layout/layout :: header"></header>
+</head>
+
+<body style="background: #4A4947">
+
+
+<div class="container" style="max-width: 1250px;padding-left:-2px">
+
+  <br>
+  <div class="row">
+  <div class="col-sm-6" >
+   <div class="card bg-dark mb-4" style="width: 100%;height:360px">
+  <div class="card-header text-white">Gestion Reclamos Coordina Cierre</div>
+  <div class="card-body">
+<div id="myPlot2" style="background-color: black;max-width:100% ;height:280px"></div>
+  </div>
+</div>
+  </div>
+<div class="col-sm-6 "  >
+   <div class="card  bg-dark  mb-4" style="width: 100%;height:360px">
+  <div class="card-header text-white">Gestion Reclamos Coordina Visita</div>
+  <div class="card-body ">
+<div id="myPlot" style="background-color: black;max-width:100% ;height:280px"></div>
+</div>
+</div>
+ </div>
+ </div>
+ <div class="row">
+<div class="col-sm-6" >
+   <div class="card bg-dark mb-4" style="width: 100%;height:360px">
+  <div class="card-header text-white">Gestion Reclamos GCC_PYME</div>
+  <div class="card-body ">
+<div id="myPlot3" style="background-color: black;max-width:100% ;height:280px"></div>
+</div>
+</div>
+</div>
+<div class="col-sm-6" >
+   <div class="card bg-dark mb-4" style="width: 100%;height:360px">
+  <div class="card-header text-white">Gestion Reclamos Informe Primera Visita</div>
+  <div class="card-body ">
+<div id="myPlot4" style="background-color: black;max-width:100% ;height:280px"></div>
+</div>
+</div>
+</div>
+ </div>
+ <div class="row">
+<div class="col-sm-12" >
+   <div class="card bg-dark mb-4" style="width: 100%;height:500px">
+  <div class="card-header text-white">Gestion Reclamos Revision Informe</div>
+  <div class="card-body ">
+<div id="myPlot5" style="background-color: black;max-width:100% ;height:400px"></div>
+</div>
+</div>
+</div>
+ </div>
+</div>
+ 
+<script type="text/javascript" th:inline="javascript">
+var a=0,b=0,c=0,a1=0,a2=0,a3=0,c1=0,c2=0,c3=0;
+/*[# th:each="sla: ${sla}"]*/
+
+	 if("[(${sla.measurement})]"=="Met") {
+   		 a++;
+  
+}	
+     if("[(${sla.measurement})]"=="Missed") {
+   	 b++;	    	  
+}
+     if("[(${sla.measurement})]"=="Detached") {
+   	  c++;	    	  
+}
+
+/*[/]*/
+ 
+ /*[# th:each="lsla: ${lsla}"]*/
+	 if("[(${lsla.measurement})]"=="Met") {
+   		 a1++;
+  
+}	
+     if("[(${lsla.measurement})]"=="Missed") {
+   	 a2++;	    	  
+}
+     if("[(${lsla.measurement})]"=="Detached") {
+   	  a3++;	    	  
+}
+
+/*[/]*/
+  /*[# th:each="sla3: ${sla3}"]*/
+ if("[(${sla3.measurement})]"=="Met") {
+		 c1++;
+
+}	
+ if("[(${sla3.measurement})]"=="Missed") {
+	 c2++;	    	  
+}
+ if("[(${sla3.measurement})]"=="Detached") {
+	  c3++;	    	  
+}
+ 
+ /*[/]*/
+  var f1=0,f2=0,f3=0;
+  /*[# th:each="sla4: ${sla4}"]*/
+
+ if("[(${sla4.measurement})]"=="Met") {
+		 f1++;
+}	
+ if("[(${sla4.measurement})]"=="Missed") {
+	 f2++;	    	  
+}
+ if("[(${sla4.measurement})]"=="Detached") {
+	  f3++;	    	  
+}
+
+/*[/]*/
+   var f4=0,f5=0,f6=0;
+  /*[# th:each="sla5: ${sla5}"]*/
+
+ if("[(${sla5.measurement})]"=="Met") {
+		 f4++;
+}	
+ if("[(${sla5.measurement})]"=="Missed") {
+	 f5++;	    	  
+}
+ if("[(${sla5.measurement})]"=="Detached") {
+	  f6++;	    	  
+}
+/*[/]*/
+ var itemsf4 = ['Gestion Reclamos ROAMING',];
+var yf4 = [f4];
+var itemsf5 = ['Gestion Reclamos ROAMING'];
+var yf5 = [f5];
+var itemsf6 = ['Gestion Reclamos ROAMING'];
+var yf6= [f6];
+var tracef4 =
+    {
+        x: itemsf4,
+        y: yf4,
+        type: 'bar',
+        marker: {color:"red"},
+		name:"Cancelado"
+    };
+var tracef5 =
+{
+    x: itemsf5,
+    y: yf5,
+    type: 'bar',
+    name:"Completo",
+    	marker: {color:"green"}
+};
+var tracef6 =
+{
+    x: itemsf6,
+    y: yf6,
+    type: 'bar',
+    name:"Pendiente",
+    	marker: {color:"orange"}
+};
+var data5= [tracef4,tracef5,tracef6];
+var itemsf1 = ['Gestion Reclamos GCC_PYME',];
+var yf1 = [f3];
+var itemsf2 = ['Gestion Reclamos GCC_PYME'];
+var yf2 = [f1];
+var itemsf3 = ['Gestion Reclamos GCC_PYME'];
+var yf3 = [f2];
+var tracef =
+    {
+        x: itemsf1,
+        y: yf1,
+        type: 'bar',
+        marker: {color:"red"},
+		name:"Cancelado"
+    };
+var tracef2 =
+{
+    x: itemsf2,
+    y: yf2,
+    type: 'bar',
+    name:"Completo",
+    	marker: {color:"green"}
+};
+var tracef3 =
+{
+    x: itemsf3,
+    y: yf3,
+    type: 'bar',
+    name:"Pendiente",
+    	marker: {color:"orange"}
+};
+var data4 = [tracef,tracef2,tracef3];
+var itemsb1 = ['Gestion Reclamos INDIVIDUAL',];
+var yb = [c3];
+
+var itemsb2 = ['Gestion Reclamos INDIVIDUAL'];
+var yb2 = [c1];
+var itemsb3 = ['Gestion Reclamos INDIVIDUAL'];
+var yb3 = [c2];
+var traceb =
+    {
+        x: itemsb1,
+        y: yb,
+        type: 'bar',
+        marker: {color:"red"},
+		name:"Cancelado"
+    };
+var traceb2 =
+{
+    x: itemsb2,
+    y: yb2,
+    type: 'bar',
+    name:"Completo",
+    	marker: {color:"green"}
+};
+var traceb3 =
+{
+    x: itemsb3,
+    y: yb3,
+    type: 'bar',
+    name:"Pendiente",
+    	marker: {color:"orange"}
+};
+
+var data3 = [traceb,traceb2,traceb3];
+var items = ['Gestion Reclamos N1',];
+var y = [c];
+var items2 = ['Gestion Reclamos N1'];
+var y2 = [a];
+var items3 = ['Gestion Reclamos N1'];
+var y3 = [b];
+var trace1 =
+    {
+        x: items,
+        y: y,
+        type: 'bar',
+        marker: {color:"red"},
+		name:"Cancelado"
+    };
+var trace2 =
+{
+    x: items2,
+    y: y2,
+    type: 'bar',
+    name:"Completo",
+    	marker: {color:"green"}
+};
+var trace3 =
+{
+    x: items3,
+
+    y: y3,
+    type: 'bar',
+    name:"Pendiente",
+    	marker: {color:"orange"}
+};
+    var layout = {
+    		
+    		paper_bgcolor:"#FFF3",
+    		xaxis: {
+    	                color: '#ea6f09'             	        
+    	    },
+    yaxis: {
+        title: {
+            text: 'numero tickets ',
+            font: {
+                family: 'Courier New, monospace',
+                size: 18,
+                color: '#ea6f09'
+            }
+        }
+    },
+    legend: {
+        
+        traceorder: 'normal',
+        font: {
+          family: 'sans-serif',
+          size: 12,
+          color: 'black'
+        },
+        bgcolor: '#E2E2E2',
+        bordercolor: '#FFFFFF',
+        borderwidth: 2
+      },
+    plot_bgcolor: 'white',
+    // paper_bgcolor: '#d4e3fc'
+    };
+
+
+
+    var data = [trace1,trace2,trace3];
+    var it = ['Gestion Reclamos Revision Informe',];
+    var y4 = [a3];
+    var it2 = ['Gestion Reclamos Revision Informe'];
+    var y5 = [a1];
+    var it3 = ['Gestion Reclamos Revision Informe'];
+    var y6= [a2];
+    var t1 =
+        {
+            x: it,
+            y: y4,
+            type: 'bar',
+            text: y4.map(String),
+            marker: {color:"red"},
+            opacity: 0.7,
+    		name:"Cancelado"
+        };
+    var t2 =
+    {
+        x: it2,
+        y: y5,
+        type: 'bar',
+        text: y5.map(String),
+        opacity: 0.7,
+        name:"Completo",
+        	marker: {color:"green",
+        		}
+    };
+    var t3 =
+    {
+        x: it3,
+        y: y6,
+        type: 'bar',
+        name:"Pendiente",
+        
+        	marker: {color:"orange"}
+    };
+        var layout2 = {
+        		paper_bgcolor:"#FFF3",
+        		xaxis: {
+	                color: '#ea6f09'             	        
+	    },
+        
+        yaxis: {
+            title: {
+                text: 'numero tickets ',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#ea6f09'
+                }
+            }
+        },
+        legend: {
+           
+            traceorder: 'normal',
+            font: {
+              family: 'sans-serif',
+              size: 12,
+              color: 'black'
+            },
+            bgcolor: '#E2E2E2',
+            bordercolor: '#FFFFFF',
+            borderwidth: 2
+          },
+        plot_bgcolor: 'white',
+        // paper_bgcolor: '#d4e3fc'
+        colorscale:"red"
+        };
+        var data2 = [t1,t2,t3];
+        var data3 = [traceb,traceb2,traceb3];
+Plotly.newPlot("myPlot2", data2, layout2,{editable: true});
+Plotly.newPlot("myPlot", data, layout);
+Plotly.newPlot("myPlot3", data3, layout2);
+Plotly.newPlot("myPlot4", data4, layout);
+Plotly.newPlot("myPlot5", data5, layout);
+</script>
+<footer th:replace="layout/layout ::footer"></footer>
+</body>
+</html>

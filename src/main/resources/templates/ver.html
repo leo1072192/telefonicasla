@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="htttp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<div class="py-4 ml-5 mr-5">
+<div class="card">
+  <div class="card-header" th:text="${titulo}">
+    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Historial Seguimiento de SLA  &nbsp &nbsp &nbsp  <a th:href="@{/graficos/}+${palabraClave}" class="btn btn-info">Estadistica</a></h5>
+  <h5 > </h5>
+    
+    <ul class="list-group">
+    <li class="list-group-item active" ></li>
+    
+    </ul>
+     <table class="table table-striped">
+			<thead class="table-info">
+			<tr>
+			<!--<th>ID</th>-->
+			<th >ID Orden</th>
+			<th>TYTLE</th>
+			<th>Estado Medicion</th>
+			<th>ASGRP</th>	
+			<th>CATEGORIA1</th>
+			<th>CATEGORIA 2</th>
+			<th>CATEGORIA 3</th>
+			<th>ESTADO</th>
+			
+			
+			<!--<th>catergoria2</th>
+			<th>catergoria3</th>-->
+      
+		
+			</tr>
+			</thead>
+			<tbody>
+			 <tr th:each="sla: ${sla}">
+			<!--<td th:text="${sla.id}"></td>-->
+			<td th:text="${sla.orderID}"></td>
+			 <td th:text="${sla.title}">
+			 <td th:if="${sla.measurement}=='Met'" class="table-success">Cumplido</td>
+			 <td th:if="${sla.measurement}=='Detached'" class="table-danger">Inactivo</td>
+      <td th:if="${sla.measurement}=='Missed'" class="table-danger">Incumplido</td>
+		<td th:if="${sla.measurement}=='Attached'" class="table-secondary">No asignado</td>
+		<td th:if="${sla.measurement}=='Missed Goal'" class="table-danger">Incumplido</td>
+		<td th:if="${sla.measurement}=='Warning'" class="table-dark">Warning</td>	
+		<td th:if="${sla.measurement}=='Pending'" class="table-warning">Pendiente</td> 
+		<td th:if="${sla.measurement}=='In Process'" class="table-info">En proceso</td> 
+			 <td th:text="${sla.asgrp}"></td>
+			<td th:text="${sla.Categoria1}"></td>
+			<td th:text="${sla.Categoria2}"></td>
+			<td th:text="${sla.Categoria3}"></td>
+			<td th:if="${sla.measurement}=='Met'" class="table-success"><a th:href="@{/ver/}+${sla.orderID}"><svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-envelope-check" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+</svg> </a></td>
+			 <td th:if="${sla.measurement}=='Detached'" class="table-danger"><a th:href="@{/ver/}+${sla.orderID}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-envelope-slash" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M14.975 10.025a3.5 3.5 0 1 0-4.95 4.95 3.5 3.5 0 0 0 4.95-4.95Zm-4.243.707a2.501 2.501 0 0 1 3.147-.318l-3.465 3.465a2.501 2.501 0 0 1 .318-3.147Zm.39 3.854 3.464-3.465a2.501 2.501 0 0 1-3.465 3.465Z"/>
+</svg></a> </td>
+      <td th:if="${sla.measurement}=='Missed'" class="table-danger"><a th:href="@{/ver/}+${sla.orderID}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-envelope-exclamation" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+</svg></a></td>
+<td th:if="${sla.measurement}=='Attached'" class="table-info"><a th:href="@{/ver/}+${sla.orderID}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-envelope-exclamation" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+</svg></a></td>
+<td th:if="${sla.measurement}=='Missed Goal'" class="table-danger"><a th:href="@{/ver/}+${sla.orderID}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-envelope-exclamation" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+</svg></a></td>
+<td th:if="${sla.measurement}=='Warning'" class="table-dark"><a th:href="@{/ver/}+${sla.orderID}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-envelope-exclamation" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+</svg></a></td>
+<td th:if="${sla.measurement}=='Pending'" class="table-warning"><a th:href="@{/ver/}+${sla.orderID}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="orange" class="bi bi-envelope-exclamation" viewBox="0 0 16 16">
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+</svg></a></td>
+<!--  <td><a class="btn btn-info " th:href="@{/form/}+${sla.id}">Editar</a></td>
+<td><a class="btn btn-danger " th:href="@{/eliminar/id/{id}/orderID/{orderID}(id = ${sla.id}, orderID = ${sla.orderID})}" >Eliminar</a></td>
+   --> </table>
+    <p>
+  <a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Estado SLA
+  </a>
+   <!--<a th:href="@{/form}" class="btn btn-primary">Agregar Nuevo</a>-->
+  
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body" >
+     <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>DESCRIPCION</th>
+       
+        <th>ESTADO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${ti}"></td>
+        <td th:if="${ti}=='ESTADO DE TICKET COMPLETO'" class="table-success"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+</svg></td>
+      <td th:unless="${ti}=='ESTADO DE TICKET COMPLETO'" class="table-danger"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg> </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+<footer th:replace="layout/layout ::footer"></footer>
+</body>
+</html>
